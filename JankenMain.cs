@@ -14,7 +14,7 @@ namespace Janken
             IJankenConsole JankenStartConsole = new JankenStartConsole();
             JankenStartConsole.ShowJankenConsole();
             //じゃんけんゲームのための設定を作成する、今回は1vs1で決め打ちだが、設定するための場面も作成予定
-            JankenConfiguration JankenConfiguration = new JankenConfiguration(1,20);
+            JankenConfiguration JankenConfiguration = new JankenConfiguration(1,1);
             //じゃんけんのメイン場面、手を選択したり勝敗判定をする
             IJankenConsole JankenBattleConsole = new JankenBattleConsole(JankenConfiguration);
             JankenBattleConsole.ShowJankenConsole();

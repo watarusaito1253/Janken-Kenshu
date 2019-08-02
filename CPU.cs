@@ -16,11 +16,8 @@ namespace Janken
         //じゃんけんのための手を選択し、それを返す
         public override Hand SelectHand(List<Hand> hands) 
         {
+            //CPUの数が複数人になると、多分ダメである。乱数の種が変わる前に続々と同じ乱数を取得する・・・と思われる。
             Random rnd = new Random();
-            for (int i = 0; i < 100000000; i++)
-            {
-
-            }
             int select = rnd.Next(hands.Count);
             return hands[select];
         }
