@@ -18,7 +18,7 @@ namespace Janken
         private static string LoseMessage = "敗北…";
         private static string DrawMessage = "引分";
         //じゃんけんの勝敗毎に生成される想定のためコンストラクタからのみ値を代入するようにプライベート
-        private int Result { get; set; }
+        public int Result { get; private set; }
         
         
         public BattaleResult(int Result)

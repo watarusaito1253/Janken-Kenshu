@@ -18,7 +18,9 @@ namespace Janken
         protected int PlayerWinCount { get; set; }
         protected int PlayerLoseCount { get; set; }
         protected int PlayerDrawCount { get; set; }
-        public BattaleResult BattaleResult { get; set; }
+
+        //戦績のためにリストで今までの結果全てを保持する
+        public List<BattaleResult> BattaleResults;
 
         public Player(string PlayerName)
         {
@@ -26,6 +28,7 @@ namespace Janken
             PlayerWinCount = 0;
             PlayerLoseCount = 0;
             PlayerDrawCount = 0;
+            BattaleResults = new List<BattaleResult>();
         }
 
         public BattaleResult DoBattle(Player me,List<Player> allPlayer) {
@@ -63,13 +66,16 @@ namespace Janken
             
             if(winCount > 0 && lostCount == 0)//勝ちフラグがあるが、負けフラグはない=勝ち
             {
+                PlayerWinCount++;
                 return new BattaleResult(BattaleResult.Win);
             }else if(winCount == 0 && lostCount > 0) //負けフラグがあるが、勝ちフラグはない=負け
             {
+                PlayerLoseCount++;
                 return new BattaleResult(BattaleResult.Lose);
             }
             else//勝ちと負けフラグがある、または引分のみは引分
             {
+                PlayerDrawCount++;
                 return new BattaleResult(BattaleResult.Draw);
             }
         }

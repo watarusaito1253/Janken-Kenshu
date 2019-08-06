@@ -11,7 +11,7 @@ namespace Janken
      */
     interface IJankenConsole
     {
-        //クラスの細かい実装が変わっても、各クラスがこのメソッドを呼ぶことでその場面ごとの処理結果を表示する
-        void ShowJankenConsole();
+        //クラスの細かい実装が変わっても、各クラスがこのメソッドを呼ぶことでその場面ごとの処理結果を表示する。また、各場面終了時のJankenConfigurationを返す
+        JankenConfiguration ShowJankenConsole(); 
     }
 }

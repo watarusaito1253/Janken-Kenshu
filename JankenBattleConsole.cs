@@ -18,10 +18,9 @@ namespace Janken
             this.JankenConfiguration = JankenConfiguration;
         }
 
-        public void ShowJankenConsole()
+        public JankenConfiguration ShowJankenConsole()
         {
             Boolean continueGame = true;
-
             while (continueGame)
             {
                 //じゃんけんのために手を選択する
@@ -38,6 +37,8 @@ namespace Janken
                 //ゲームを続けるか判定する
                 continueGame = isContinueGame();
             }
+
+            return JankenConfiguration;
         }
 
         private void AllSetPlayerHand()
@@ -54,7 +55,7 @@ namespace Janken
             {
                 try
                 {
-                    player.BattaleResult = player.DoBattle(player, JankenConfiguration.AllPlayers);
+                    player.BattaleResults.Add(player.DoBattle(player, JankenConfiguration.AllPlayers));
                 }
                 catch (Exception e)//じゃんけんの手の相性設定などに不備がある場合、ゲームが成り立たないのでエラー終了
                 {
@@ -69,7 +70,7 @@ namespace Janken
         {
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
-                Console.WriteLine(player.PlayerName + ":" +  player.BattaleResult.getBattaleResultMessage());
+                Console.WriteLine(player.PlayerName + ":" +  player.BattaleResults.Last().getBattaleResultMessage());
             }
             ShowHorizontalLine();
         }
