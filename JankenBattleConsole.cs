@@ -80,6 +80,7 @@ namespace Janken
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
                 Console.WriteLine(player.PlayerName + ":" + player.PlayerHand.DisplayName);
+                Console.WriteLine(player.PlayerHand.DisplayAA);
             }
             ShowHorizontalLine();
         }

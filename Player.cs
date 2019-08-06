@@ -14,10 +14,10 @@ namespace Janken
     {
         public string PlayerName {get; set;}
         public Hand PlayerHand { get; set; }
-        //戦績用　後で使う
-        protected int PlayerWinCount { get; set; }
-        protected int PlayerLoseCount { get; set; }
-        protected int PlayerDrawCount { get; set; }
+        //戦績用　
+        public int PlayerWinCount { get; protected set; }
+        public int PlayerLoseCount { get; protected set; }
+        public int PlayerDrawCount { get; protected set; }
 
         //戦績のためにリストで今までの結果全てを保持する
         public List<BattaleResult> BattaleResults;
@@ -81,5 +81,25 @@ namespace Janken
         }
 
         public abstract Hand SelectHand(List<Hand> hands);
+
+
+        //戦績のために勝敗結果をまとめて返す
+        public string getCalcPlayerResult()
+        {
+            double winRate = 0.0;
+            double loseRate = 0.0;
+            double drawRate = 0.0;
+            winRate = Math.Round(PlayerWinCount / (double)BattaleResults.Count * 100.0);
+            loseRate = Math.Round(PlayerLoseCount / (double)BattaleResults.Count * 100.0);
+            drawRate = Math.Round(PlayerDrawCount / (double)BattaleResults.Count * 100.0);
+            return PlayerName + "の戦績 勝利:" + PlayerWinCount + "回 敗北:" + PlayerLoseCount + "回 引分:" + PlayerDrawCount + "回 " + "勝率:" + winRate + "% 敗率:" + loseRate + "% 引率:" + drawRate + "%";
+        }
+
+        //戦績出力のために、CSV形式で結果を返す
+        public string getResultCSV()
+        {
+            return GetType() + "," + PlayerName + "," + PlayerWinCount + "," + PlayerLoseCount + "," + PlayerDrawCount;
+        }
+
     }
 }

@@ -11,6 +11,7 @@ namespace Janken
         public Rock()
         {
             DisplayName = "グー";
+            DisplayAA = "　　　　　/｣｣｣｣" + Environment.NewLine + "　　　 　｜っ丿" + Environment.NewLine + "　 ∧_∧ / ／" + Environment.NewLine + "　( ･ω･)／";
         }
     }
 }

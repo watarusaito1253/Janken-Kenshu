@@ -13,6 +13,7 @@ namespace Janken
         public Paper()
         {
             DisplayName = "パー";
+            DisplayAA = "　　　　　｢｢｢h" + Environment.NewLine + "　　　 　Ｃ　ﾉ" + Environment.NewLine + "　 ∧_∧ / ／" + Environment.NewLine + "　( ･ω･)／";
         }
     }
 }

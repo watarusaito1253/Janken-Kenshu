@@ -18,47 +18,40 @@ namespace Janken
 
         public JankenConfiguration ShowJankenConsole()
         {
+            //じゃんけんゲームの総回数をプレイヤーリストの先頭から取得する
             int battleCount = JankenConfiguration.AllPlayers[0].BattaleResults.Count;
             Console.WriteLine("じゃんけんゲーム" + battleCount + "回の戦績");
-
+            //じゃんけんゲームの結果表示のため、各プレイヤーの結果を表示するメソッド呼び出し
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
-                Console.WriteLine(getCalcPlayerResult(player));
+                Console.WriteLine(player.getCalcPlayerResult());
             }
+            //結果を出力するか、入力していもらいそれに応じて処理する
+            if (isOutputResult())
+            {
+                JankenResultOutput jankenResultOutput = new JankenResultOutput();
+                jankenResultOutput.OutputCSV(JankenConfiguration.AllPlayers);
+                Console.WriteLine("結果を" + jankenResultOutput.path + "に出力しました");
+            }
+           
 
             return JankenConfiguration;
         }
 
-        private string getCalcPlayerResult(Player player)
+      
+        private Boolean isOutputResult()
         {
-            int winCount = 0;
-            int loseCount = 0;
-            int drawCount = 0;
-            foreach (BattaleResult battaleResult in player.BattaleResults)
+            Console.WriteLine("じゃんけんゲームの結果を出力しますか?(はい:1 いいえ:その他)");
+            try
             {
-                if(battaleResult.Result == BattaleResult.Win)
-                {
-                    winCount++;
-                }
-                else if(battaleResult.Result == BattaleResult.Lose)
-                {
-                    loseCount++;
-                }
-                else if (battaleResult.Result == BattaleResult.Draw)
-                {
-                    drawCount++;
-                }
+                return int.Parse(Console.ReadLine()) == 1;
             }
-            double winRate = 0.0;
-            double loseRate = 0.0;
-            double drawRate = 0.0;
-            winRate = Math.Round(winCount / (double)player.BattaleResults.Count * 100.0);
-            loseRate = Math.Round(loseCount / (double)player.BattaleResults.Count * 100.0);
-            drawRate = Math.Round(drawCount / (double)player.BattaleResults.Count * 100.0);
-            
-
-            return player.PlayerName + "の戦績 勝利:" + winCount + "回 敗北:" + loseCount + "回 引分:" + drawCount + "回 " + "勝率:" + winRate + "% 敗率:" + loseRate + "% 引率:" + drawRate + "%";
+            catch (Exception)//文字などの1以外の入力はノーとみなし、falseを返す
+            {
+                return false;
+            }
         }
-        
     }
+
+
 }

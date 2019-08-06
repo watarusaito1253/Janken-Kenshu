@@ -39,6 +39,7 @@
     <Compile Include="Human.cs" />
     <Compile Include="JankenBattleConsole.cs" />
     <Compile Include="JankenResultConsole.cs" />
+    <Compile Include="JankenResultOutput.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="Player.cs" />

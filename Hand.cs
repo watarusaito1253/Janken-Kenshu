@@ -16,6 +16,7 @@ namespace Janken
         protected Dictionary<Hand,int> WinLostRelationships;
         public static string WarningRelationship = "ゲームの設定が不足しています。それぞれの手の相性設定をご確認ください。(キーを押すと終了します）";
         public string DisplayName { get; set; }
+        public string DisplayAA { get; set; }
 
         public Hand()
         {
