@@ -12,9 +12,9 @@ namespace Janken
     class CPU : Player
     {
         //出す手を決めるための乱数
-        private static Random rnd = new Random();
+        private static Random Rnd = new Random();
 
-        public CPU(string PlayerName):base(PlayerName)
+        public CPU(string pName):base(pName)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Janken
         {
             
             //Random rnd = new Random();
-            int select = rnd.Next(hands.Count);
+            int select = Rnd.Next(hands.Count);
             return hands[select];
         }
     }

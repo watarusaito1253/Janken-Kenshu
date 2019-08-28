@@ -22,9 +22,9 @@ namespace Janken
         //戦績のためにリストで今までの結果全てを保持する
         public List<BattaleResult> BattaleResults;
 
-        public Player(string PlayerName)
+        public Player(string pName)
         {
-            this.PlayerName = PlayerName;
+            this.PlayerName = pName;
             PlayerWinCount = 0;
             PlayerLoseCount = 0;
             PlayerDrawCount = 0;
@@ -44,7 +44,7 @@ namespace Janken
                 int result;
                 try
                 {
-                    result = PlayerHand.getWinLostRelationship(enemy.PlayerHand);
+                    result = PlayerHand.GetWinLostRelationship(enemy.PlayerHand);
                 }
                 catch (Exception)
                 {
@@ -84,7 +84,7 @@ namespace Janken
 
 
         //戦績のために勝敗結果をまとめて返す
-        public string getCalcPlayerResult()
+        public string GetCalcPlayerResult()
         {
             double winRate = 0.0;
             double loseRate = 0.0;
@@ -96,7 +96,7 @@ namespace Janken
         }
 
         //戦績出力のために、CSV形式で結果を返す
-        public string getResultCSV()
+        public string GetResultCSV()
         {
             return GetType() + "," + PlayerName + "," + PlayerWinCount + "," + PlayerLoseCount + "," + PlayerDrawCount;
         }

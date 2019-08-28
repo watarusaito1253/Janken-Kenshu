@@ -23,13 +23,13 @@ namespace Janken
             WinLostRelationships = new Dictionary<Hand, int>();
         }
 
-        public void setWinLostRelationship(Hand hand,int winLostRelationship)
+        public void setWinLostRelationship(Hand hand,int winLostRelation)
         {
-            WinLostRelationships.Add(hand,winLostRelationship);
+            WinLostRelationships.Add(hand,winLostRelation);
         }
 
         //勝敗判定のために、この手が引数で与えられた手に対して勝ち、負け、引分などの結果を返す
-        public int getWinLostRelationship(Hand hand)
+        public int GetWinLostRelationship(Hand hand)
         {
             if (WinLostRelationships.ContainsKey(hand))
             {
@@ -38,7 +38,7 @@ namespace Janken
         }
 
         //設定に不備がないか、じゃんけんの手の相性が全て設定されているかを判定する
-        public Boolean isSetAllRelationship(List<Hand> hands)
+        public Boolean IsSetAllRelationship(List<Hand> hands)
         {
             int countOfRelationship = 0;
             foreach (Hand hand in hands)

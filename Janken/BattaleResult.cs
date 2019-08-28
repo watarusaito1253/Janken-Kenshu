@@ -21,9 +21,9 @@ namespace Janken
         public int Result { get; private set; }
         
         
-        public BattaleResult(int Result)
+        public BattaleResult(int result)
         {
-            this.Result = Result;
+            this.Result = result;
         } 
 
         public string getBattaleResultMessage()

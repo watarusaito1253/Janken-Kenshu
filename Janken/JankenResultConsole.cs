@@ -24,22 +24,23 @@ namespace Janken
             //じゃんけんゲームの結果表示のため、各プレイヤーの結果を表示するメソッド呼び出し
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
-                Console.WriteLine(player.getCalcPlayerResult());
+                Console.WriteLine(player.GetCalcPlayerResult());
             }
             //結果を出力するか、入力していもらいそれに応じて処理する
-            if (isOutputResult())
+            if (IsOutputResult())
             {
-                JankenResultOutput jankenResultOutput = new JankenResultOutput();
-                jankenResultOutput.OutputCSV(JankenConfiguration.AllPlayers);
-                Console.WriteLine("結果を" + jankenResultOutput.path + "に出力しました");
+                using (JankenResultOutput jankenResultOutput = new JankenResultOutput())
+                {
+                    jankenResultOutput.OutputCSV(JankenConfiguration.AllPlayers);
+                    Console.WriteLine("結果を" + jankenResultOutput.Path + "に出力しました");
+                }
             }
            
-
             return JankenConfiguration;
         }
 
       
-        private Boolean isOutputResult()
+        private Boolean IsOutputResult()
         {
             Console.WriteLine("じゃんけんゲームの結果を出力しますか?(はい:1 いいえ:その他)");
             try

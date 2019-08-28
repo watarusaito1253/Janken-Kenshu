@@ -11,7 +11,7 @@ namespace Janken
      */
     class Human : Player
     {
-        public Human(string PlayerName) : base(PlayerName)
+        public Human(string pName) : base(pName)
         {
         }
 
@@ -42,7 +42,7 @@ namespace Janken
                 try
                 {
                     select = int.Parse(Console.ReadLine());
-                    if(select < hands.Count)
+                    if(0 < select && select < hands.Count)
                     {
                         break;
                     }

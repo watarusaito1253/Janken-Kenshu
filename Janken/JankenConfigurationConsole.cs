@@ -39,13 +39,13 @@ namespace Janken
             while (humanCount + CPUCount < MinPlayerNumber || MaxPlayerNumber < humanCount + CPUCount)
             {
                 Console.WriteLine(warningInputOfTotal);
-                humanCount = getCount(MaxHumanNumber, promptInputHumanCount);
-                CPUCount = getCount(MaxCPUNumber, promptInputCPUCount);
+                humanCount = GetCount(MaxHumanNumber, promptInputHumanCount);
+                CPUCount = GetCount(MaxCPUNumber, promptInputCPUCount);
             }
             return new JankenConfiguration(humanCount, CPUCount);
         }
 
-        private int getCount(int maxNumber, string promptInput)
+        private int GetCount(int maxNumber, string promptInput)
         {
             string warningInput = "表示された整数値以下を入力してください";
             int count = -1;

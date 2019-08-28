@@ -13,9 +13,9 @@ namespace Janken
     {
         private JankenConfiguration JankenConfiguration;
 
-        public JankenBattleConsole(JankenConfiguration JankenConfiguration)
+        public JankenBattleConsole(JankenConfiguration jConfig)
         {
-            this.JankenConfiguration = JankenConfiguration;
+            this.JankenConfiguration = jConfig;
         }
 
         public JankenConfiguration ShowJankenConsole()
@@ -35,7 +35,7 @@ namespace Janken
                 //結果は必要
                 ShowBattleResult();
                 //ゲームを続けるか判定する
-                continueGame = isContinueGame();
+                continueGame = IsContinueGame();
             }
 
             return JankenConfiguration;
@@ -90,7 +90,7 @@ namespace Janken
             Console.WriteLine("----------------------------------------------");
         }
 
-        private Boolean isContinueGame()
+        private Boolean IsContinueGame()
         {
             Console.WriteLine("続ける場合は1を入力してください(やめる場合は1以外を入力してください)");
             try

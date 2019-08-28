@@ -16,12 +16,12 @@ namespace Janken
         //humanとCPUを別に保持する必要もそんなにないので、まとめて保持する
         public List<Player> AllPlayers;
 
-        public JankenConfiguration(int HumanCount,int CPUCount) 
+        public JankenConfiguration(int humanCount,int CPUCount) 
         {
            
             AllPlayers = new List<Player>();
           
-            for (int i = 0; i < HumanCount; i++)
+            for (int i = 0; i < humanCount; i++)
             {
                 AllPlayers.Add(new Human("Human" + i));
             }
@@ -31,14 +31,14 @@ namespace Janken
                 AllPlayers.Add(new CPU("CPU" + i));
             }
             //じゃんけんのために、それぞれの手の相性を設定する
-            setHandWinLose();
+            SetHandWinLose();
             //確認のために、プレイヤーの人数を表示する
             ShowConfigurationDetail();
         }
 
       
 
-        private void setHandWinLose()
+        private void SetHandWinLose()
         {
             Hands = new List<Hand>();
             Hand rock = new Rock();
@@ -64,7 +64,7 @@ namespace Janken
             //ゲームを成り立たせるために、それぞれの手が全ての手と相性が設定されているかを確認する、ダメならエラー終了
             foreach (Hand hand in Hands)
             {
-                if (!hand.isSetAllRelationship(Hands))
+                if (!hand.IsSetAllRelationship(Hands))
                 {
                     Exception e = new Exception(Hand.WarningRelationship);
                     Console.WriteLine(e.ToString());
