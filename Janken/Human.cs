@@ -42,7 +42,7 @@ namespace Janken
                 try
                 {
                     select = int.Parse(Console.ReadLine());
-                    if(0 < select && select < hands.Count)
+                    if (0 < select && select < hands.Count)
                     {
                         break;
                     }
@@ -51,8 +51,8 @@ namespace Janken
                 {
                     continue;
                 }
-                
-            } 
+
+            }
 
             return select;
         }

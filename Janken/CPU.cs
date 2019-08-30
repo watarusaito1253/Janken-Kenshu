@@ -14,14 +14,14 @@ namespace Janken
         //出す手を決めるための乱数
         private static Random Rnd = new Random();
 
-        public CPU(string pName):base(pName)
+        public CPU(string pName) : base(pName)
         {
         }
 
         //じゃんけんのための手を選択し、それを返す
-        public override Hand SelectHand(List<Hand> hands) 
+        public override Hand SelectHand(List<Hand> hands)
         {
-            
+
             //Random rnd = new Random();
             int select = Rnd.Next(hands.Count);
             return hands[select];

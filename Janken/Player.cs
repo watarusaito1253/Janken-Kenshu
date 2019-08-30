@@ -12,7 +12,7 @@ namespace Janken
      */
     abstract class Player
     {
-        public string PlayerName {get; set;}
+        public string PlayerName { get; set; }
         public Hand PlayerHand { get; set; }
         //戦績用　
         public int PlayerWinCount { get; protected set; }
@@ -31,14 +31,16 @@ namespace Janken
             BattaleResults = new List<BattaleResult>();
         }
 
-        public BattaleResult DoBattle(Player me,List<Player> allPlayer) {
+        public BattaleResult DoBattle(Player me, List<Player> allPlayer)
+        {
             int winCount = 0;
             int lostCount = 0;
             int drawCount = 0;
             foreach (Player enemy in allPlayer)
             {
                 //自分とは戦わない。自分以外とは全員と戦う
-                if (enemy.Equals(me)){
+                if (enemy.Equals(me))
+                {
                     continue;
                 }
                 int result;
@@ -50,25 +52,28 @@ namespace Janken
                 {
                     throw;//じゃんけんに設定されていない手を返したらエラーを投げる
                 }
-              
-                if(result == BattaleResult.Win)
+
+                if (result == BattaleResult.Win)
                 {
                     winCount++;
-                }else if(result == BattaleResult.Lose)
+                }
+                else if (result == BattaleResult.Lose)
                 {
                     lostCount++;
-                }else if(result == BattaleResult.Draw)
+                }
+                else if (result == BattaleResult.Draw)
                 {
                     drawCount++;
                 }
             }
 
-            
-            if(winCount > 0 && lostCount == 0)//勝ちフラグがあるが、負けフラグはない=勝ち
+
+            if (winCount > 0 && lostCount == 0)//勝ちフラグがあるが、負けフラグはない=勝ち
             {
                 PlayerWinCount++;
                 return new BattaleResult(BattaleResult.Win);
-            }else if(winCount == 0 && lostCount > 0) //負けフラグがあるが、勝ちフラグはない=負け
+            }
+            else if (winCount == 0 && lostCount > 0) //負けフラグがあるが、勝ちフラグはない=負け
             {
                 PlayerLoseCount++;
                 return new BattaleResult(BattaleResult.Lose);

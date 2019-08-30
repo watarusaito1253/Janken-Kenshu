@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Janken
 {
 
-    class Scissors:Hand
+    class Scissors : Hand
     {
         public Scissors()
         {

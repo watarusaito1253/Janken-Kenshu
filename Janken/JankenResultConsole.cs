@@ -35,11 +35,11 @@ namespace Janken
                     Console.WriteLine("結果を" + jankenResultOutput.Path + "に出力しました");
                 }
             }
-           
+
             return JankenConfiguration;
         }
 
-      
+
         private Boolean IsOutputResult()
         {
             Console.WriteLine("じゃんけんゲームの結果を出力しますか?(はい:1 いいえ:その他)");

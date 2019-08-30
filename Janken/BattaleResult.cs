@@ -19,18 +19,18 @@ namespace Janken
         private static string DrawMessage = "引分";
         //じゃんけんの勝敗毎に生成される想定のためコンストラクタからのみ値を代入するようにプライベート
         public int Result { get; private set; }
-        
-        
+
+
         public BattaleResult(int result)
         {
             this.Result = result;
-        } 
+        }
 
         public string getBattaleResultMessage()
         {
-            if(Result == Win)
+            if (Result == Win)
             {
-               return WinMessage;
+                return WinMessage;
             }
             else if (Result == Lose)
             {

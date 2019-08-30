@@ -45,7 +45,7 @@ namespace Janken
         {
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
-                player.PlayerHand =  player.SelectHand(JankenConfiguration.Hands);
+                player.PlayerHand = player.SelectHand(JankenConfiguration.Hands);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Janken
         {
             foreach (Player player in JankenConfiguration.AllPlayers)
             {
-                Console.WriteLine(player.PlayerName + ":" +  player.BattaleResults.Last().getBattaleResultMessage());
+                Console.WriteLine(player.PlayerName + ":" + player.BattaleResults.Last().getBattaleResultMessage());
             }
             ShowHorizontalLine();
         }

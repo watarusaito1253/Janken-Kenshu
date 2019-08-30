@@ -16,11 +16,11 @@ namespace Janken
         //humanとCPUを別に保持する必要もそんなにないので、まとめて保持する
         public List<Player> AllPlayers;
 
-        public JankenConfiguration(int humanCount,int CPUCount) 
+        public JankenConfiguration(int humanCount, int CPUCount)
         {
-           
+
             AllPlayers = new List<Player>();
-          
+
             for (int i = 0; i < humanCount; i++)
             {
                 AllPlayers.Add(new Human("Human" + i));
@@ -36,7 +36,7 @@ namespace Janken
             ShowConfigurationDetail();
         }
 
-      
+
 
         private void SetHandWinLose()
         {
@@ -69,12 +69,12 @@ namespace Janken
                     Exception e = new Exception(Hand.WarningRelationship);
                     Console.WriteLine(e.ToString());
                     Console.ReadLine();
-                   throw e; 
-                    
+                    throw e;
+
                 }
             }
         }
-        
+
         public void ShowConfigurationDetail()
         {
             //いきなりhumanとCPUそれぞれの数が必要だが,この処理はそんなに使用しない想定である
@@ -82,15 +82,16 @@ namespace Janken
             int CPUCount = 0;
             foreach (Player player in AllPlayers)
             {
-                if(player is Human)
+                if (player is Human)
                 {
                     humanCount++;
-                }else if (player is CPU)
+                }
+                else if (player is CPU)
                 {
                     CPUCount++;
                 }
             }
-            Console.WriteLine("人間:" + humanCount + "人 CPU:"  + CPUCount + "人");
+            Console.WriteLine("人間:" + humanCount + "人 CPU:" + CPUCount + "人");
         }
 
     }

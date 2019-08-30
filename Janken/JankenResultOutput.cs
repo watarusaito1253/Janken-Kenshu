@@ -29,7 +29,7 @@ namespace Janken
             //ファイル名称
             string name = System.IO.Path.DirectorySeparatorChar + "result" + time + ".CSV";
             Path += name;
-            Stream st = new FileStream(Path,FileMode.Create,FileAccess.ReadWrite);
+            Stream st = new FileStream(Path, FileMode.Create, FileAccess.ReadWrite);
             Stream = new StreamWriter(st, Encoding.Default);
         }
 

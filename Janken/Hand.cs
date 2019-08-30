@@ -13,7 +13,7 @@ namespace Janken
     abstract class Hand
     {
         //それぞれのじゃんけんの手とそれに関する相性
-        protected Dictionary<Hand,int> WinLostRelationships;
+        protected Dictionary<Hand, int> WinLostRelationships;
         public static string WarningRelationship = "ゲームの設定が不足しています。それぞれの手の相性設定をご確認ください。(キーを押すと終了します）";
         public string DisplayName { get; set; }
         public string DisplayAA { get; set; }
@@ -23,9 +23,9 @@ namespace Janken
             WinLostRelationships = new Dictionary<Hand, int>();
         }
 
-        public void setWinLostRelationship(Hand hand,int winLostRelation)
+        public void setWinLostRelationship(Hand hand, int winLostRelation)
         {
-            WinLostRelationships.Add(hand,winLostRelation);
+            WinLostRelationships.Add(hand, winLostRelation);
         }
 
         //勝敗判定のために、この手が引数で与えられた手に対して勝ち、負け、引分などの結果を返す
@@ -34,7 +34,8 @@ namespace Janken
             if (WinLostRelationships.ContainsKey(hand))
             {
                 return WinLostRelationships[hand];
-            } else throw new Exception(WarningRelationship);//設定されていない手が呼ばれた場合、ゲームが成り立たないのでエラーを返す   
+            }
+            else throw new Exception(WarningRelationship);//設定されていない手が呼ばれた場合、ゲームが成り立たないのでエラーを返す   
         }
 
         //設定に不備がないか、じゃんけんの手の相性が全て設定されているかを判定する
@@ -43,7 +44,8 @@ namespace Janken
             int countOfRelationship = 0;
             foreach (Hand hand in hands)
             {
-                if(WinLostRelationships.ContainsKey(hand)){
+                if (WinLostRelationships.ContainsKey(hand))
+                {
                     countOfRelationship++;
                 }
             }

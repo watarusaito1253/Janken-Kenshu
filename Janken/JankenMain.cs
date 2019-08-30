@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Janken
 {
-    class JankenMain
+    public class JankenMain
     {
-        static void Main()
+        public static void Main()
         {
             //スタート場面を作成、表示する。賑やかしのためであり、無くても動作に影響しない
             IJankenConsole JankenStartConsole = new JankenStartConsole();
